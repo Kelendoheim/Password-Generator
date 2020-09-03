@@ -1,12 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordLength = prompt("Enter desired number of characters for password:");
-var lowercaseBoolean = confirm("Would you like to include lowercase letters?");
-var uppercaseBoolean = confirm("Would you like to include UPPERCASE letters?");
-var numberBoolean = confirm("Would you like to include numbers?");
-var specialCharBoolean = confirm(
-  "Would you like to include special characters?"
-);
+//Necessary arrays for generating various characters
 var lowercaseArray = [
   "a",
   "b",
@@ -97,6 +91,25 @@ var specialCharArray = [
   "?",
   "/",
 ];
+//prompts user for number between 8 and 128 until correct number is input
+var passwordLength = prompt("Enter desired number of characters for password:");
+
+while (passwordLength < 8 || passwordLength > 128){
+
+  alert("For maximum security, please choose a numeric length between 8 and 128 characters");
+  var passwordLength = prompt("Enter desired number of characters for password:");
+}
+//checks to see which types of character is desired for the password
+var lowercaseBoolean = confirm("Would you like to include lowercase letters?");
+var uppercaseBoolean = confirm("Would you like to include UPPERCASE letters?");
+var numberBoolean = confirm("Would you like to include numbers?");
+var specialCharBoolean = confirm(
+  "Would you like to include special characters?"
+);
+
+if (lowercaseBoolean  === false && uppercaseBoolean === false && numberBoolean === false && specialCharBoolean === false) {
+  alert("You have selected no characters for your password. Please try again.");
+};
 
 
 
