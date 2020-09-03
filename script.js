@@ -91,6 +91,7 @@ var specialCharArray = [
   "?",
   "/",
 ];
+var indexPosition = 0;
 //prompts user for number between 8 and 128 until correct number is input
 var passwordLength = prompt("Enter desired number of characters for password:");
 
@@ -106,9 +107,15 @@ var numberBoolean = confirm("Would you like to include numbers?");
 var specialCharBoolean = confirm(
   "Would you like to include special characters?"
 );
-
+// If no characters are selected, the user will be alerted to try again.
 if (lowercaseBoolean  === false && uppercaseBoolean === false && numberBoolean === false && specialCharBoolean === false) {
   alert("You have selected no characters for your password. Please try again.");
+};
+
+function randomArrayIndex(x) {
+ var indexPosition = Math.floor((Math.random() * x.length)); 
+ return indexPosition;
+
 };
 
 
@@ -125,11 +132,5 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 console.log(passwordLength);
-console.log(lowercaseBoolean);
-console.log(uppercaseBoolean);
-console.log(numberBoolean);
-console.log(specialCharBoolean);
-console.log(lowercaseArray);
-console.log(uppercaseArray);
-console.log(numberArray);
-console.log(specialCharArray);
+
+console.log(lowercaseArray[randomArrayIndex(lowercaseArray)]);
