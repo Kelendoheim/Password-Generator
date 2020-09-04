@@ -98,7 +98,6 @@ var indexPosition = 0;
 var finalArray = [];
 var finalPassword = "";
 function generatePassword() {
-  
   //prompts user for number between 8 and 128 until correct number is input
   var passwordLength = prompt(
     "Enter desired number of characters for password:"
@@ -173,4 +172,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
