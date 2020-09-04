@@ -92,6 +92,8 @@ var specialCharArray = [
   "/",
 ];
 var indexPosition = 0;
+var finalArray = [];
+var finalPassword = "";
 //prompts user for number between 8 and 128 until correct number is input
 var passwordLength = prompt("Enter desired number of characters for password:");
 
@@ -100,7 +102,7 @@ while (passwordLength < 8 || passwordLength > 128){
   alert("For maximum security, please choose a numeric length between 8 and 128 characters");
   var passwordLength = prompt("Enter desired number of characters for password:");
 }
-//checks to see which types of character is desired for the password
+//checks to see which types of character are desired for the password
 var lowercaseBoolean = confirm("Would you like to include lowercase letters?");
 var uppercaseBoolean = confirm("Would you like to include UPPERCASE letters?");
 var numberBoolean = confirm("Would you like to include numbers?");
@@ -112,11 +114,35 @@ if (lowercaseBoolean  === false && uppercaseBoolean === false && numberBoolean =
   alert("You have selected no characters for your password. Please try again.");
 };
 
-function randomArrayIndex(x) {
- var indexPosition = Math.floor((Math.random() * x.length)); 
- return indexPosition;
+// checks the boolean values from the confirms and adds the array elements into the finalArray variable.
+if (lowercaseBoolean === true) {
+  finalArray = finalArray.concat(lowercaseArray);
+}
+if (uppercaseBoolean === true) {
+  finalArray = finalArray.concat(uppercaseArray);
+}
+if (numberBoolean === true) {
+  finalArray = finalArray.concat(numberArray);
+}
+if (specialCharBoolean === true) {
+  finalArray = finalArray.concat(specialCharArray);
+}
 
-};
+//function to pick a random index position within an array
+function randomArrayIndex(x) {
+  var indexPosition = Math.floor((Math.random() * x.length)); 
+  return indexPosition;
+ 
+ };
+for (i = 0; i < passwordLength; i++) {
+  finalPassword = finalPassword.concat(finalArray[randomArrayIndex(finalArray)]);
+}
+function generatePassword () {
+  
+  
+}
+
+
 
 
 
@@ -131,6 +157,14 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-console.log(passwordLength);
 
-console.log(lowercaseArray[randomArrayIndex(lowercaseArray)]);
+
+
+
+
+
+//TODO DELETE
+
+console.log(passwordLength);
+console.log(finalPassword);
+console.log(password);
