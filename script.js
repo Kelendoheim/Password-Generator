@@ -1,6 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 //Necessary arrays for generating various characters
+
 var lowercaseArray = [
   "a",
   "b",
@@ -91,9 +93,12 @@ var specialCharArray = [
   "?",
   "/",
 ];
+
 var indexPosition = 0;
 var finalArray = [];
 var finalPassword = "";
+function generatePassword () {
+
 //prompts user for number between 8 and 128 until correct number is input
 var passwordLength = prompt("Enter desired number of characters for password:");
 
@@ -137,8 +142,8 @@ function randomArrayIndex(x) {
 for (i = 0; i < passwordLength; i++) {
   finalPassword = finalPassword.concat(finalArray[randomArrayIndex(finalArray)]);
 }
-function generatePassword () {
-  
+return finalPassword;
+
   
 }
 
@@ -156,6 +161,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
 
 
 
